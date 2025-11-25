@@ -27,6 +27,3 @@ Para quem deseja contribuir ou estudar o código:
 
 * **Engine:** Godot Engine v4.5
 * **Linguagem:** GDScript
-
-## 📄 Licença
-Este projeto está sob a licença [GPL / MIT / etc.]. Veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
