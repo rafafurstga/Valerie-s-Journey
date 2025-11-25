@@ -12,7 +12,7 @@ Este projeto foi criado com o objetivo de ganhar pontinhos num trabalho escolar 
 
 Clique no link abaixo para ir para a página oficial de downloads:
 
-👉 **[BAIXAR A ÚLTIMA VERSÃO NA PÁGINA DE RELEASES]([LINK DA SUA PÁGINA DE RELEASES NO GITHUB])**
+👉 **[BAIXAR A ÚLTIMA VERSÃO NA PÁGINA DE RELEASES](https://github.com/rafafurstga/Valerie-s-Journey/releases/tag/DEMO)**
 
 ### 💻 Guia de Instalação Rápida por Plataforma
 
