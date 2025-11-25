@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://csqlhtuskfcyf"]
+
+[ext_resource type="Script" uid="uid://pc2e1es43ma0" path="res://estrela.gd" id="1_071of"]
+[ext_resource type="Texture2D" uid="uid://cibfp5xyp7bky" path="res://Sprites/SPRITESR/estrela1.png" id="2_rke10"]
+[ext_resource type="Texture2D" uid="uid://csc6tlsbor0xw" path="res://Sprites/SPRITESR/estrela2.png" id="3_wq7cr"]
+[ext_resource type="Texture2D" uid="uid://jncl4jttei0p" path="res://Sprites/SPRITESR/estrela3.png" id="4_b0ouf"]
+[ext_resource type="Script" uid="uid://dxjdano6uc1i8" path="res://animated_sprite_2d.gd" id="5_7hcrj"]
+[ext_resource type="AudioStream" uid="uid://mdg5d6rtf8mm" path="res://Cenas/estrela.ogg" id="6_5u4le"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_orj5g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rke10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wq7cr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rke10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b0ouf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8pok"]
+size = Vector2(64, 64)
+
+[node name="Estrela" type="Area2D"]
+script = ExtResource("1_071of")
+
+[node name="EstrelaSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_orj5g")
+frame_progress = 0.6867867
+script = ExtResource("5_7hcrj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t8pok")
+
+[node name="SfxPega" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_5u4le")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

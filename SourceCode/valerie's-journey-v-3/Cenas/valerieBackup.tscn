@@ -1,0 +1,112 @@
+[gd_scene load_steps=15 format=3 uid="uid://dxv8axc1e7xy"]
+
+[ext_resource type="Script" uid="uid://dgdnp7infx8b7" path="res://valerie.gd" id="1_516de"]
+[ext_resource type="Texture2D" uid="uid://dm7fgva6wy22m" path="res://Sprites/Valerie/valerieStanding.png" id="2_1b3ed"]
+[ext_resource type="Texture2D" uid="uid://detxjuhenopk3" path="res://Backgrounds/Background1.jpeg" id="2_q4if1"]
+[ext_resource type="Texture2D" uid="uid://uhvrtpf4387r" path="res://Sprites/Valerie/valerieMovingFoward1.png" id="3_cu0gt"]
+[ext_resource type="Texture2D" uid="uid://7iobe0e77gvp" path="res://Backgrounds/BackgroundRed.jpeg" id="3_q4if1"]
+[ext_resource type="Texture2D" uid="uid://cfblqh160g8no" path="res://Sprites/Valerie/valerieMovingFoward2.png" id="4_fo2ac"]
+[ext_resource type="Texture2D" uid="uid://8xbbjc1n5ys0" path="res://Sprites/SPRITESR/ValerieStandingRed.png" id="5_osear"]
+[ext_resource type="Texture2D" uid="uid://e347cw5vixel" path="res://Sprites/SPRITESR/valerieMovingFoward2Red.png" id="6_twe6e"]
+[ext_resource type="Texture2D" uid="uid://boi5vrpfpk6xm" path="res://Sprites/SPRITESR/ValerieMovingFoward1Red.png" id="7_8neao"]
+[ext_resource type="AudioStream" uid="uid://bbv0jic762mp8" path="res://Cenas/maro-jump-sound-effect_1.mp3" id="10_k8tgx"]
+[ext_resource type="AudioStream" uid="uid://btnu5oylq3rcv" path="res://Cenas/death-sound-geometry-dash.mp3" id="11_kiteq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ap6j"]
+size = Vector2(30, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bxswr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_osear")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_twe6e")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8neao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_twe6e")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v4e14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1b3ed")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fo2ac")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cu0gt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fo2ac")
+}],
+"loop": true,
+"name": &"run",
+"speed": 3.0
+}]
+
+[node name="Valerie" type="CharacterBody2D"]
+script = ExtResource("1_516de")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3.5)
+shape = SubResource("RectangleShape2D_1ap6j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(600, 0)
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(600, 0)
+scale = Vector2(1.2519532, 1.0585939)
+texture = ExtResource("2_q4if1")
+
+[node name="BackgroundRed" type="Sprite2D" parent="."]
+position = Vector2(600, 0)
+scale = Vector2(1.25, 1.0537109)
+texture = ExtResource("3_q4if1")
+
+[node name="Anime_ValRed" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bxswr")
+animation = &"Idle"
+
+[node name="Anime_Val" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v4e14")
+animation = &"Idle"
+
+[node name="SfxPulo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_k8tgx")
+volume_db = -10.097
+
+[node name="SfxDash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_kiteq")

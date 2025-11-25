@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://vlcmcvlvwtoo"]
+
+[ext_resource type="Texture2D" uid="uid://duso06ec5ugha" path="res://Sprites/SPRITESR/cipo.png" id="1_fxlsu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c340"]
+size = Vector2(24, 64)
+
+[node name="Cipó" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8c340")
+
+[node name="Cipo" type="Sprite2D" parent="."]
+texture = ExtResource("1_fxlsu")

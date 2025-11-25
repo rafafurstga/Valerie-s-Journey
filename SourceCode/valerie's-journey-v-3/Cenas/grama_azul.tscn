@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd8ib2lk0yxx2"]
+
+[ext_resource type="Script" uid="uid://25bqyko42a8i" path="res://grama_azul.gd" id="1_ufhva"]
+[ext_resource type="Texture2D" uid="uid://cwdrkoedd6ggk" path="res://Blocos/Grama Azul/Grama Azul x64.png" id="2_r7c14"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c340"]
+size = Vector2(64, 64)
+
+[node name="GramaAzul" type="RigidBody2D"]
+gravity_scale = 0.0
+freeze = true
+script = ExtResource("1_ufhva")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8c340")
+metadata/_edit_group_ = true
+
+[node name="GramaAzulX64" type="Sprite2D" parent="."]
+texture = ExtResource("2_r7c14")
+metadata/_edit_group_ = true

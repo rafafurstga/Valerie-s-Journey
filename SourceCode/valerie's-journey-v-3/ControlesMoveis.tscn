@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://drbq1cqk6fs52"]
+
+[ext_resource type="Texture2D" uid="uid://dpjqcd3i38m6i" path="res://Sprites/botoes/esquerda.png" id="1_mi6qw"]
+[ext_resource type="Script" uid="uid://dj3iukfh7d30v" path="res://controles_moveis.gd" id="1_wbt6p"]
+[ext_resource type="Texture2D" uid="uid://c4odaax6h0gsp" path="res://Sprites/botoes/direita.png" id="2_ut6ru"]
+[ext_resource type="Texture2D" uid="uid://ctb0sodmnb3gt" path="res://Sprites/botoes/pulo.png" id="3_wbt6p"]
+[ext_resource type="Texture2D" uid="uid://flfrcqrc27sy" path="res://Sprites/botoes/dash.png" id="4_y4igi"]
+[ext_resource type="Texture2D" uid="uid://cxx5fhsutplsf" path="res://Sprites/botoes/transforma.png" id="5_6nooo"]
+[ext_resource type="Texture2D" uid="uid://chc3kfjpu84bn" path="res://Sprites/botoes/pause.png" id="6_celv8"]
+[ext_resource type="Texture2D" uid="uid://pqtprroyu8up" path="res://Sprites/botoes/skip.png" id="7_ut6ru"]
+
+[node name="ControlesMoveis" type="CanvasLayer"]
+script = ExtResource("1_wbt6p")
+
+[node name="Esquerda" type="TouchScreenButton" parent="."]
+position = Vector2(91, 847)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("1_mi6qw")
+action = "WalkLeft"
+
+[node name="Direita" type="TouchScreenButton" parent="."]
+position = Vector2(387, 847)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_ut6ru")
+action = "WalkRight"
+
+[node name="Pulo" type="TouchScreenButton" parent="."]
+position = Vector2(244, 732)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_wbt6p")
+action = "Jump"
+
+[node name="Dash" type="TouchScreenButton" parent="."]
+position = Vector2(1640, 865)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("4_y4igi")
+action = "Dash"
+
+[node name="MudarPlano" type="TouchScreenButton" parent="."]
+position = Vector2(1634, 638)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_6nooo")
+action = "Modo"
+
+[node name="Pause" type="TouchScreenButton" parent="."]
+position = Vector2(1764, 29)
+texture_normal = ExtResource("6_celv8")
+action = "ui_cancel"
+
+[node name="Skip" type="TouchScreenButton" parent="."]
+position = Vector2(31, 16)
+texture_normal = ExtResource("7_ut6ru")
+action = "ui_cancel"

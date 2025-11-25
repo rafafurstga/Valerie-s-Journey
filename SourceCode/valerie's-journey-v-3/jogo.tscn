@@ -1,0 +1,140 @@
+[gd_scene load_steps=13 format=3 uid="uid://c30dce4j1qsak"]
+
+[ext_resource type="Script" uid="uid://l31o737ypefv" path="res://jogo.gd" id="1_1ap6j"]
+[ext_resource type="PackedScene" uid="uid://dxv8axc1e7xy" path="res://Cenas/valerieBackup.tscn" id="2_yq54j"]
+[ext_resource type="Script" uid="uid://c52rge767wqyp" path="res://music_manager.gd" id="3_yq54j"]
+[ext_resource type="AudioStream" uid="uid://glt06xinsdrw" path="res://Cenas/VALERIESTHEMEV1.mp3" id="4_qn35j"]
+[ext_resource type="AudioStream" uid="uid://cwons7x1qt5v2" path="res://Cenas/VALERIESTHEME_RED_V1.mp3" id="5_8c340"]
+[ext_resource type="PackedScene" uid="uid://cks0pcw8w00bo" path="res://Cenas/tile_estrelas.tscn" id="6_8c340"]
+[ext_resource type="Texture2D" uid="uid://cibfp5xyp7bky" path="res://Sprites/SPRITESR/estrela1.png" id="6_ysdx3"]
+[ext_resource type="Script" uid="uid://bux11ufyhbfun" path="res://menu_pause.gd" id="7_45nkh"]
+[ext_resource type="FontFile" uid="uid://clgjf8lvbllbb" path="res://Fonts/gamepocket/GamePocket-Regular-ZeroKern.woff" id="7_mtw28"]
+[ext_resource type="Script" uid="uid://2a166fkdydwq" path="res://texto_contador.gd" id="9_t8pok"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn35j"]
+size = Vector2(1916, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ap6j"]
+size = Vector2(1920, 1079)
+
+[node name="Jogo" type="Node2D"]
+script = ExtResource("1_1ap6j")
+
+[node name="Valerie" parent="." groups=["jogador"] instance=ExtResource("2_yq54j")]
+position = Vector2(160, 692)
+
+[node name="Death_pit" type="Area2D" parent="."]
+position = Vector2(19160, 1013)
+scale = Vector2(20, 1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death_pit"]
+shape = SubResource("RectangleShape2D_qn35j")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(19200, 551)
+scale = Vector2(20, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1ap6j")
+
+[node name="MusicManager" type="Node2D" parent="." groups=["MusicManager"]]
+script = ExtResource("3_yq54j")
+
+[node name="MusicaAzul" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("4_qn35j")
+
+[node name="MusicaRed" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("5_8c340")
+
+[node name="TileEstrelas" parent="." instance=ExtResource("6_8c340")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Tutorial1Label" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 396.0
+offset_top = -88.0
+offset_right = 659.0
+offset_bottom = -30.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("7_mtw28")
+theme_override_font_sizes/font_size = 64
+text = "PRESS R"
+vertical_alignment = 1
+
+[node name="MenuPause" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_45nkh")
+
+[node name="FundoPreto" type="ColorRect" parent="CanvasLayer/MenuPause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 9.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MenuPause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuPause/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BotaoContinuar" type="Button" parent="CanvasLayer/MenuPause/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 40)
+layout_mode = 2
+text = "Continuar"
+
+[node name="BotaoSair" type="Button" parent="CanvasLayer/MenuPause/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 40)
+layout_mode = 2
+text = "Sair
+"
+
+[node name="HUD" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD"]
+layout_mode = 2
+
+[node name="IconeEstrela" type="TextureRect" parent="CanvasLayer/HUD/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_ysdx3")
+
+[node name="TextoContador" type="Label" parent="CanvasLayer/HUD/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("9_t8pok")
+
+[connection signal="body_entered" from="Death_pit" to="." method="_on_death_pit_body_entered"]
+[connection signal="body_entered" from="TileEstrelas/Estrela" to="TileEstrelas/Estrela" method="_on_body_entered"]
+[connection signal="body_entered" from="TileEstrelas/@Area2D@474850" to="TileEstrelas/@Area2D@474850" method="_on_body_entered"]
+[connection signal="body_entered" from="TileEstrelas/@Area2D@474851" to="TileEstrelas/@Area2D@474851" method="_on_body_entered"]
+[connection signal="pressed" from="CanvasLayer/MenuPause/CenterContainer/VBoxContainer/BotaoContinuar" to="CanvasLayer/MenuPause" method="_on_botao_continuar_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuPause/CenterContainer/VBoxContainer/BotaoSair" to="CanvasLayer/MenuPause" method="_on_botao_sair_pressed"]

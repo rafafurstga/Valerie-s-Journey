@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqd037fidr8e7"]
+
+[ext_resource type="Script" uid="uid://cal87ukrl8biw" path="res://Cenas/terra_red.gd" id="1_th5c2"]
+[ext_resource type="Texture2D" uid="uid://dg2eykn7tdwe6" path="res://Sprites/SPRITESR/Terra Red x64.png" id="1_to7ry"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c340"]
+size = Vector2(64, 64)
+
+[node name="Terra Red" type="RigidBody2D"]
+freeze = true
+script = ExtResource("1_th5c2")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8c340")
+
+[node name="TerraRedX64" type="Sprite2D" parent="."]
+texture = ExtResource("1_to7ry")
